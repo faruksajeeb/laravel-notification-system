@@ -4,11 +4,11 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Notification;
 use App\Notifications\OffersNotification;
-class NotificationController extends Controller
+class ProductController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
   
     public function index()
@@ -19,8 +19,9 @@ class NotificationController extends Controller
     public function sendOfferNotification() {
         $userSchema = User::first();
 		//dd($userSchema);
+		
         $offerData = [
-            'name' => 'BOGO',
+            'name' => 'Sajeeb',
             'body' => 'You received an offer.',
             'thanks' => 'Thank you',
             'offerText' => 'Check out the offer',
