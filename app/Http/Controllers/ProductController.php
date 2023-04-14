@@ -17,8 +17,8 @@ class ProductController extends Controller
     }
     
     public function sendOfferNotification() {
-        $userSchema = User::first();
-		//dd($userSchema);
+        $users = User::all();
+		//dd($users);
 		
         $offerData = [
             'name' => 'Sajeeb',
@@ -29,7 +29,11 @@ class ProductController extends Controller
             'offer_id' => 007
         ];
   
-        Notification::send($userSchema, new OffersNotification($offerData));
+        //Notification::send($user, new OffersNotification($offerData));
+		foreach($users as $user){
+			Notification::sendNow($user, new OffersNotification($offerData));
+		}
+        
    
         dd('Task completed!');
     }

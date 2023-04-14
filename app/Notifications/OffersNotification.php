@@ -5,7 +5,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 //use Notification;
-class OffersNotification extends Notification
+class OffersNotification extends Notification implements ShouldQueue
 {
     use Queueable;
     private $offerData;
@@ -37,11 +37,14 @@ class OffersNotification extends Notification
     public function toMail($notifiable)
     {
 		//dd('here');
+		/*
         return (new MailMessage)                    
             ->greeting('Hi ' . $this->offerData['name'])
             ->line($this->offerData['body'])
             ->action($this->offerData['offerText'], $this->offerData['offerUrl'])
             ->line($this->offerData['thanks']);
+			*/
+			return (new MailMessage)->view('notification.offer');
     }
     /**
      * Get the array representation of the notification.
