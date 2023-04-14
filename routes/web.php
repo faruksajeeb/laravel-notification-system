@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/send-notification', [NotificationController::class, 'sendOfferNotification']);
 Route::get('/', function () {
     return view('welcome');
 });
