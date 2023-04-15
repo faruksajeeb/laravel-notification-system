@@ -26,7 +26,8 @@ class OffersNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['mail','database'];
+        //return ['mail','database'];
+        return ['mail'];
     }
     /**
      * Get the mail representation of the notification.

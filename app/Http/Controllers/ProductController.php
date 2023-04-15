@@ -30,8 +30,10 @@ class ProductController extends Controller
         ];
   
         //Notification::send($user, new OffersNotification($offerData));
+		for($i=0;$i<20;$i++){
 		foreach($users as $user){
-			Notification::sendNow($user, new OffersNotification($offerData));
+			Notification::send($user, new OffersNotification($offerData));
+		}
 		}
         
    
